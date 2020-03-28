@@ -13,7 +13,7 @@ def nyc_pigeon_organizer(data)
         end
 
         if !pidgeon_list[name][attributes].include?(data)
-          pidgeon_list[name][attributes] << data
+          pidgeon_list[name][attributes] << data.to_s
         end
 
       end
