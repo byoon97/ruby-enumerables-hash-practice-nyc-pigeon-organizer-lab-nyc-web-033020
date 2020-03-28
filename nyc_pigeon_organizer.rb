@@ -1,10 +1,23 @@
 def nyc_pigeon_organizer(data)
   pidgeon_list = {}
-  pidgeon_names = []
-  data.each do |data, names|
-    if !pidgeon_names.include?(names)
-      pidgeon_names << names
+  data.each do |attributes, innerHash|
+    innerHash.each do |data, nameArray|
+      nameArray.each do |name|
+
+        if !pidgeon_list.has_key?(name)
+          pidgeon_list[name] = {}
+        end
+
+        if !pidgeon_list[name].has_key?(attributes)
+          pidgeon_list[name][attributes] = []
+        end
+
+        if !pidgeon_list[name][attributes].include?(data)
+        pidgeon_list[name][attributes] << data
+          
+      end
     end
   end
-  return pidgeon_names
+
+  pidgeon_list
 end
